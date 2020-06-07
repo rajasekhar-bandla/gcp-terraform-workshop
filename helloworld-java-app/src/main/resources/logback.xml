@@ -8,7 +8,7 @@
 		</encoder>
 	</appender>
 
-	<logger name="no.bekk" level="TRACE" />
+	<logger name="com.raj" level="TRACE" />
 
 	<root level="INFO">
 		<appender-ref ref="STDOUT" />

@@ -27,7 +27,7 @@ module "mysql-db" {
   db_name          = "${module.project.name}"
   project          = "${module.project.id}"
   region           = "${var.region}"
-  db_name          = "${module.project.name}"
+ # db_name          = "${module.project.name}"
   user_name        = "hello"
   user_password    = "hello"
 }
@@ -54,7 +54,7 @@ module "lb" {
   name              = "${module.project.name}"
   project           = "${module.project.id}"
   region            = "${var.region}"
-  count             = "${var.appserver_count}"
+  total             = "${var.appserver_count}"
   instance_template = "${module.instance-template.instance_template}"
   zones             = "${var.zones}"
 }

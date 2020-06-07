@@ -8,9 +8,9 @@ resource "google_sql_database_instance" "master" {
     tier                        = "${var.tier}"
     activation_policy           = "${var.activation_policy}"
     disk_autoresize             = "${var.disk_autoresize}"
-    backup_configuration        = ["${var.backup_configuration}"]
-    location_preference         = ["${var.location_preference}"]
-    maintenance_window          = ["${var.maintenance_window}"]
+    # backup_configuration        = ["${var.backup_configuration}"]
+    # location_preference         = ["${var.location_preference}"]
+    # maintenance_window          = ["${var.maintenance_window}"]
     disk_size                   = "${var.disk_size}"
     disk_type                   = "${var.disk_type}"
     pricing_plan                = "${var.pricing_plan}"
@@ -25,7 +25,7 @@ resource "google_sql_database_instance" "master" {
     }
   }
 
-  replica_configuration = ["${var.replica_configuration}"]
+  # replica_configuration = ["${var.replica_configuration}"]
 }
 
 resource "google_sql_database" "default" {

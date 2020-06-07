@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>no.bekk</groupId>
+    <groupId>com.raj</groupId>
     <version>1.0-SNAPSHOT</version>
     <artifactId>helloworld-java-app</artifactId>
     <properties>
@@ -53,7 +53,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>no.bekk.jetty.WebServerMain</mainClass>
+                            <mainClass>com.raj.jetty.WebServerMain</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
@@ -75,7 +75,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
                 <configuration>
-                    <mainClass>no.bekk.jetty.WebServerMain</mainClass>
+                    <mainClass>com.raj.jetty.WebServerMain</mainClass>
                 </configuration>
             </plugin>
         </plugins>

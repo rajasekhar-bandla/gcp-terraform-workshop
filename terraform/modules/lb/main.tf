@@ -45,12 +45,15 @@ resource "google_compute_http_health_check" "healthcheck" {
 }
 
 resource "google_compute_instance_group_manager" "webservers" {
-  name               = "${var.name}-instance-group-manager-${count.index}"
+  name               = "${var.name}-instance-group-manager-${var.total.index}"
   project            = "${var.project}"
   instance_template  = "${var.instance_template}"
   base_instance_name = "${var.name}-webserver-instance"
-  count              = "${var.count}"
-  zone               = "${element(var.zones, count.index)}"
+  count              = "${var.total}"
+  zone               = "${element(var.zones, var.total.index)}"
+  version {
+    instance_template  = "${var.instance_template}"
+  }
   named_port {
     name = "http"
     port = 80
@@ -58,13 +61,13 @@ resource "google_compute_instance_group_manager" "webservers" {
 }
 
 resource "google_compute_autoscaler" "autoscaler" {
-  name    = "${var.name}-scaler-${count.index}"
+  name    = "${var.name}-scaler-${var.total.index}"
   project = "${var.project}"
-  count   = "${var.count}"
-  zone    = "${element(var.zones, count.index)}"
-  target  = "${element(google_compute_instance_group_manager.webservers.*.self_link, count.index)}"
+  count   = "${var.total}"
+  zone    = "${element(var.zones, var.total.index)}"
+  target  = "${element(google_compute_instance_group_manager.webservers.*.self_link, var.total.index)}"
 
-  autoscaling_policy = {
+  autoscaling_policy {
     max_replicas    = 2
     min_replicas    = 1
     cooldown_period = 90

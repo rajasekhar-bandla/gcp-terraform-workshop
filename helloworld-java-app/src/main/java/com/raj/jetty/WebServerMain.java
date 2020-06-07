@@ -1,4 +1,4 @@
-package no.bekk.jetty;
+package com.raj.jetty;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -32,7 +32,7 @@ public class WebServerMain {
 		server.setHandler(context);
 		ServletHolder h = new ServletHolder(new ServletContainer());
 		h.setInitParameter("com.sun.jersey.config.property.packages",
-				"no.bekk.jersey.resources");
+				"com.raj.jersey.resources");
 		h.setInitParameter("com.sun.jersey.api.json.POJOMappingFeature", "true");
 		context.addServlet(h, "/*");
 		try {

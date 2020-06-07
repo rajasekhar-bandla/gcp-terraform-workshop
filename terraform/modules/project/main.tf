@@ -14,10 +14,12 @@ resource "google_project" "project" {
  org_id          = "${var.org_id}"
 }
 
-resource "google_project_services" "project" {
+resource "google_project_service" "computeservice" {
  project = "${google_project.project.project_id}"
- services = [
-   "compute.googleapis.com",
-   "sqladmin.googleapis.com"
- ]
+ service = "compute.googleapis.com"
+}
+
+resource "google_project_service" "sqlservice" {
+ project = "${google_project.project.project_id}"
+ service = "sqladmin.googleapis.com"
 }

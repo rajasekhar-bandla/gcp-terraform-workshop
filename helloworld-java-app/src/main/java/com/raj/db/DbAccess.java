@@ -1,4 +1,4 @@
-package no.bekk.db;
+package com.raj.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

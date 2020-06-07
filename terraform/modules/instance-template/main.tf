@@ -1,6 +1,6 @@
 data "template_file" "init" {
   template = "${file("${path.module}/scripts/startup.sh")}"
-  vars {
+  vars = {
     db_name     = "${var.db_name}"
     db_user     = "${var.db_user}"
     db_password = "${var.db_password}"
@@ -14,7 +14,7 @@ resource "google_compute_instance_template" "webserver" {
   machine_type = "${var.instance_type}"
   region       = "${var.region}"
 
-  metadata {
+  metadata = {
     ssh-keys = "${var.user}:${file("${var.ssh_key}")}"
   }
 

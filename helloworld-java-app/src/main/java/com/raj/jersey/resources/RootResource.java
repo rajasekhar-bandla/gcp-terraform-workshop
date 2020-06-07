@@ -1,4 +1,4 @@
-package no.bekk.jersey.resources;
+package com.raj.jersey.resources;
 
 import static javax.ws.rs.core.MediaType.TEXT_PLAIN;
 
@@ -9,12 +9,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
-import no.bekk.db.DbAccess;
+import com.raj.db.DbAccess;
 
 @Path("/")
 public class RootResource {
 
-       private DbAccess dbAccess = new DbAccess();
+    private DbAccess dbAccess = new DbAccess();
 
 	@GET
 	@Produces(TEXT_PLAIN)
